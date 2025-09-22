@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {config} from "./config"
 
-const backendURL = import.meta.env.VITE_BACKEND_URL
+const backendURL = config.get("VITE_BACKEND_URL");
 
 const axiosInstance = axios.create({
   baseURL: backendURL, 

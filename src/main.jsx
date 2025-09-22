@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx';
 import {LoadingProvider} from './context/LoadingContext.jsx'
+import { config } from './utilis/config.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,7 +15,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <LoadingProvider>
     <AuthProvider>
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={config.get("VITE_GOOGLE_CLIENT_ID")}>
     <App />
     </GoogleOAuthProvider>    
     </AuthProvider>

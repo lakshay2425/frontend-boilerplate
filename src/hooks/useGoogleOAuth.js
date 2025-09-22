@@ -4,10 +4,11 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { AuthContext } from "../context/AuthContext.jsx";
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { config } from '../utilis/config.js';
 
 export const useGoogleAuth = () => {
   const { setIsAuthenticated } = useContext(AuthContext);
-  const authService = import.meta.env.VITE_AUTH_URL;
+  const authService = config.get("VITE_AUTH_URL");
   const navigate = useNavigate();
 
   const googleResponse = async (authResult) => {
